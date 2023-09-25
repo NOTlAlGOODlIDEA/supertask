@@ -1,13 +1,13 @@
-package notagoodidea.mvc.controller;
+package notagoodidea.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class RegisterPageController {
+public class WelcomePageController {
 
-    @GetMapping("register")
+    @GetMapping("/")
     public String getView() {
-        return "register.html";
+        return "welcomePage.html";
     }
 }
