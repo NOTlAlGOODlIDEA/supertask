@@ -8,6 +8,6 @@ public class RegisterPageController {
 
     @GetMapping("register")
     public String getView() {
-        return "register.html";
+        return "register";
     }
 }
