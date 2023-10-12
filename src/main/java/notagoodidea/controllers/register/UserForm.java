@@ -1,4 +1,4 @@
-package notagoodidea.register;
+package notagoodidea.controllers.register;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package notagoodidea.register;
+package notagoodidea.controllers.register;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
