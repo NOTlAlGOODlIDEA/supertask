@@ -12,10 +12,11 @@ import notagoodidea.controllers.register.UserForm;
 @Component
 public class LogInfoFromPostMethodAspect {
 
+    private static final String LOGGER_NAME = "PostMethodLogger";
     private Logger logger;
 
     public LogInfoFromPostMethodAspect() {
-        logger = Logger.getLogger("InfoFromPostMethodLogger");
+        logger = Logger.getLogger(LOGGER_NAME);
     }
 
     @Before("@annotation(LogInfoFromPostMethod)")
