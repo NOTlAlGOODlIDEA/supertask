@@ -1,11 +1,11 @@
-package notagoodidea.controllers.register;
+package notagoodidea.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserForm {
+public class User {
     private String name;
     private String password;
 }

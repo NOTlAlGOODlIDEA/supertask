@@ -6,7 +6,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
-import notagoodidea.controllers.register.UserForm;
+import notagoodidea.model.User;
 
 @Aspect
 @Component
@@ -24,8 +24,8 @@ public class LogInfoFromPostMethodAspect {
         Object[] args = joinPoint.getArgs();
 
         for (Object arg : args) {
-            if (arg instanceof UserForm) {
-                UserForm user = (UserForm) arg;
+            if (arg instanceof User) {
+                User user = (User) arg;
                 logger.setLevel(Level.INFO);
                 logger.info("######" + user.getName() + " " + user.getPassword() + "######");
             }
