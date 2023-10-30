@@ -1,13 +1,13 @@
-package notagoodidea.controllers.register;
+package notagoodidea.supertask.authentication.controllers.register;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import notagoodidea.database.DatabaseRegistrar;
-import notagoodidea.model.User;
-import notagoodidea.utils.annotations.LogInfoFromPostMethod;
+import notagoodidea.supertask.authentication.database.DatabaseRegistrar;
+import notagoodidea.supertask.authentication.model.User;
+import notagoodidea.supertask.authentication.utils.annotations.LogInfoFromPostMethod;
 
 
 @Controller

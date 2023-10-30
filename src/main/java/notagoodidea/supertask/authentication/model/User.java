@@ -1,4 +1,4 @@
-package notagoodidea.model;
+package notagoodidea.supertask.authentication.model;
 
 import lombok.Getter;
 import lombok.Setter;

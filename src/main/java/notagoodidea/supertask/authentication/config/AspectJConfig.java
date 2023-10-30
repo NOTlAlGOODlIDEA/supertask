@@ -1,4 +1,4 @@
-package notagoodidea.config;
+package notagoodidea.supertask.authentication.config;
 
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;

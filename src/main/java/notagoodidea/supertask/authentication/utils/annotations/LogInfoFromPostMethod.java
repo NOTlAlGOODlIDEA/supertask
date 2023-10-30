@@ -1,4 +1,4 @@
-package notagoodidea.utils.annotations;
+package notagoodidea.supertask.authentication.utils.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

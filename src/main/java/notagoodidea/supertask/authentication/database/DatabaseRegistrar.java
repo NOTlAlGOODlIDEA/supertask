@@ -1,9 +1,9 @@
-package notagoodidea.database;
+package notagoodidea.supertask.authentication.database;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import notagoodidea.model.User;
+import notagoodidea.supertask.authentication.model.User;
 
 @Component
 public class DatabaseRegistrar {

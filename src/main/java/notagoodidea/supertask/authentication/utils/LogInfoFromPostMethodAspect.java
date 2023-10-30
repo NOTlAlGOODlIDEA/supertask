@@ -1,4 +1,4 @@
-package notagoodidea.utils;
+package notagoodidea.supertask.authentication.utils;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -6,7 +6,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
-import notagoodidea.model.User;
+import notagoodidea.supertask.authentication.model.User;
 
 @Aspect
 @Component
@@ -22,7 +22,7 @@ public class LogInfoFromPostMethodAspect {
         logger.setLevel(Level.INFO);
     }
 
-    @Before("@annotation(notagoodidea.utils.annotations.LogInfoFromPostMethod)")
+    @Before("@annotation(notagoodidea.supertask.authentication.utils.annotations.LogInfoFromPostMethod)")
     public void logInfoFromPostMethod(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
 

@@ -1,13 +1,13 @@
-package notagoodidea.controllers.login;
+package notagoodidea.supertask.authentication.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginPageController {
+public class WelcomePageController {
 
-    @GetMapping("login")
+    @GetMapping("/")
     public String getView() {
-        return "login.html";
+        return "welcome";
     }
 }
