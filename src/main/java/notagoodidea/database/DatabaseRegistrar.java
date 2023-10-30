@@ -1,23 +1,22 @@
 package notagoodidea.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import notagoodidea.model.User;
 
+@Component
 public class DatabaseRegistrar {
 
+    private JdbcTemplate jdbcTemplate;
+
+    public DatabaseRegistrar(@Autowired JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     private String query = "INSERT INTO USERS(name, password) VALUES (\"%s\", \"%s\");";
-    private String connectionUrl = "jdbc:mysql://localhost:3306/users";
 
     public void registerOnDatabase(User user) {
-        try (Connection connection = DriverManager.getConnection(connectionUrl, "den", "");
-                PreparedStatement statement = connection.prepareStatement(
-                        String.format(query, user.getName(), user.getPassword()))) {
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        jdbcTemplate.update(query.formatted(user.getName(), user.getPassword()));
     }
 }
