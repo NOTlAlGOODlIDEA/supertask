@@ -13,21 +13,24 @@ import notagoodidea.model.User;
 public class LogInfoFromPostMethodAspect {
 
     private static final String LOGGER_NAME = "PostMethodLogger";
+    private static final String LOGGER_MESSAGE =
+            "Post method controller got the User(%s) with username(%s) and password(%s)";
     private Logger logger;
 
     public LogInfoFromPostMethodAspect() {
         logger = Logger.getLogger(LOGGER_NAME);
+        logger.setLevel(Level.INFO);
     }
 
-    @Before("@annotation(LogInfoFromPostMethod)")
-    public void logCall(JoinPoint joinPoint) {
+    @Before("@annotation(notagoodidea.utils.annotations.LogInfoFromPostMethod)")
+    public void logInfoFromPostMethod(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
 
         for (Object arg : args) {
             if (arg instanceof User) {
                 User user = (User) arg;
-                logger.setLevel(Level.INFO);
-                logger.info("######" + user.getName() + " " + user.getPassword() + "######");
+
+                logger.info(LOGGER_MESSAGE.formatted(user, user.getName(), user.getPassword()));
             }
         }
     }
