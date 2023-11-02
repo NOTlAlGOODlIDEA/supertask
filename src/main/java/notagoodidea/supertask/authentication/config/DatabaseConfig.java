@@ -4,22 +4,26 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-@PropertySource("classpath:database.properties")
 public class DatabaseConfig {
 
+    private final DatabaseProperties databaseProperties;
+
+    @Autowired
+    public DatabaseConfig(DatabaseProperties databaseProperties) {
+        this.databaseProperties = databaseProperties;
+    }
+
     @Bean
-    public DataSource dataSource(@Autowired Environment environment) {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(environment.getProperty("spring.datasource.url"));
-        dataSource.setUsername(environment.getProperty("spring.datasource.username"));
-        dataSource.setPassword(environment.getProperty("spring.datasource.password"));
-        dataSource.setPassword(environment.getProperty("spring.datasource.driver-class-name"));
+        dataSource.setUrl(databaseProperties.getUrl());
+        dataSource.setUsername(databaseProperties.getUsername());
+        dataSource.setPassword(databaseProperties.getPassword());
+        dataSource.setDriverClassName(databaseProperties.getDriverClassName());
 
         return dataSource;
     }
